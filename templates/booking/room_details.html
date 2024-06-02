@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{room.name}}</title>
+</head>
+<body>
+    {% for booking in bookings %}
+        {{booking.user.username}} - from {{booking.start_date}} to {{booking.end_date}}
+    {% endfor %}
+</body>
+</html>
