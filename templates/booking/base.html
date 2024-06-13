@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking System</title>
+</head>
+<body>
+    <header>
+        <h1>Booking system</h1> 
+        <br>
+        <a href="{% url 'room_list' %}">See all rooms</a>
+    </header>
+
+    <div class="container">
+        {% block content %}
+        
+        {% endblock %}
+    </div>
+</body>
+</html>
