@@ -1,13 +1,38 @@
-{% extends 'booking/base.html' %}
-{% load static %}
-{% block content %}
-    <h2>Book a Room</h2>
-
-    <form method="post" >
-        {% csrf_token %}
-
-        {{ form.as_p }}
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Form</title>
+    <!-- Підключення Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Завантаження статичних файлів Django -->
+    {% load static %}
+    <!-- Підключення додаткового CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">Booking Form</h2>
+                        <form id="bookingForm" method="post" novalidate>
+                            {% csrf_token %}
+                            <!-- Поля форми, згенеровані Django -->
+                            {{ form.as_p }}
+                            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Підключення Bootstrap JS та Popper.js (якщо потрібно) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Підключення додаткового JS -->
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>
