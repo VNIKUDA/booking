@@ -22,7 +22,7 @@
 
 #     return render(request, "booking/room_details.html", context=context)
 
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 from booking.models import Room, Booking, Aviliability
 from booking.serializers import RoomSerializer, BookingSerializer, AvaliabilitySerializer
 from django.shortcuts import render, redirect
@@ -47,12 +47,23 @@ class RoomViewSet(viewsets.ModelViewSet):
     queryset = Room.objects.all()
     serializer_class = RoomSerializer
 
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
 
 class BookingViewSet(viewsets.ModelViewSet):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
 
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
 
 class AviliabilityViewSet(viewsets.ModelViewSet):
     queryset = Aviliability.objects.all()
     serializer_class = AvaliabilitySerializer
+
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
+def index(request):
+    return render(request, "base.html")
